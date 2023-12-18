@@ -31,7 +31,7 @@ function App(props) {
           {/* ChatGPT quiz for mood and music genres */}
           {/* <Route exact path="/quiz" element={<Quiz />} /> */}
           {/* Results of quiz with Spotify playlist */}
-          <Route exact path="/listening" element={<Home />} />
+          <Route exact path="/" element={<Home />} />
           {/* Optional, about us page */}
           <Route exact path="/about" element={<About />} />
         </Routes>
