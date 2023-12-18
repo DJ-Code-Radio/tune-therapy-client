@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Profile extends Component {
+class About extends Component {
   render() {
     return (
       <div className="profiles-container">
@@ -43,4 +43,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+export default About;
