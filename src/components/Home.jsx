@@ -6,7 +6,7 @@ import Image from 'react-bootstrap/Image';
 
 function Home() {
     return (
-        <Container fluid>
+        <Container>
             <Row>
                 <Col>
                     <ListGroup>

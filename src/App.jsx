@@ -15,7 +15,6 @@ function App(props) {
  
   return (
     <>
-      <h1>Listening Room</h1>
       <AuthButtons />
       <hr />
       {
