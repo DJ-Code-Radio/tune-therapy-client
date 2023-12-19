@@ -3,6 +3,8 @@ import { withAuth0 } from '@auth0/auth0-react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AuthButtons from './auth/AuthButtons.jsx';
 import Home from './components/Home.jsx';
+import Quiz from './components/Quiz.jsx';
+import ListeningRoom from './components/ListeningRoom.jsx';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -27,9 +29,10 @@ function App(props) {
         {/* <Header /> */}
         <Routes>
           {/* In order, home page with auth 0 login */}
-          {/* <Route exact path="/home" element={<BestBooks />} /> */}
+          <Route exact path="/ListeningRoom" element={<ListeningRoom/>} />
           {/* ChatGPT quiz for mood and music genres */}
-          {/* <Route exact path="/quiz" element={<Quiz />} /> */}
+          <Route exact path="/quiz" element={<Quiz />} />
+
           {/* Results of quiz with Spotify playlist */}
           <Route exact path="/" element={<Home />} />
           {/* Optional, about us page */}
