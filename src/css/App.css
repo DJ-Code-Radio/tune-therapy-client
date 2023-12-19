@@ -2,7 +2,7 @@
 
 /* Apply a background color to the entire page */
 body {
-    background-color: #f4f4f4; /* Replace with your preferred color */
+    background-color: greenyellow; /* Replace with your preferred color */
     margin: 0; /* Remove default margin */
   }
   
@@ -30,8 +30,8 @@ body {
   
   /* Optional: Add some additional styling to ListGroup items */
   .list-group-item {
-    background-color: #ffffff; /* Set background color for list items */
-    border: 1px solid #dddddd; /* Add a border to list items */
+    background-color: purple; /* Set background color for list items */
+    border: 1px solid red; /* Add a border to list items */
     margin-bottom: 5px; /* Add some spacing between list items */
   }
   
