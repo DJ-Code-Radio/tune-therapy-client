@@ -1,8 +1,13 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+} */
+
+body {
+  color:#24384e;
+  border: 2px black
 }
 
 .logo {
@@ -69,18 +74,6 @@ body {
 }
 
 
-
-#aboutPic {
-  max-width: 50%;
-  border-radius: 50%;
-  margin-bottom: 20px;
-}
-#aboutPic2 {
-  max-width: 50%;
-  border-radius: 50%;
-  margin-bottom: 20px;
-}
-
 p {
   font-size: 16px;
   line-height: 1.6;
@@ -90,13 +83,6 @@ p {
 h2 {
   font-size: 24px;
   color: #24384e;
-  margin-top: 20px;
-}
-
-#errolParagraph {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #333;
   margin-top: 20px;
 }
 

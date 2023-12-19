@@ -1,0 +1,17 @@
+.list-group {
+    background-color: #103c69;
+    /* Add other styles for the ListGroup in the Home component */
+}
+  
+.image-col img {
+    border: 2px solid #333;
+    /* Add other styles for the Image component in the Home component */
+}
+
+body {
+    background-color: #103c69;
+}
+
+p {
+    color: aqua;
+}
