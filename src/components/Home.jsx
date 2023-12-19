@@ -3,10 +3,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Image from 'react-bootstrap/Image';
+import '../css/Home.css';
 
 function Home() {
     return (
-        <Container fluid>
+        // <p>Hello World</p>
+        <Container>
             <Row>
                 <Col>
                     <ListGroup>

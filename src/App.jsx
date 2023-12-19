@@ -5,7 +5,7 @@ import AuthButtons from './auth/AuthButtons.jsx';
 import Home from './components/Home.jsx';
 import Quiz from './components/Quiz.jsx';
 import ListeningRoom from './components/ListeningRoom.jsx';
-import './App.css';
+import './css/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 // need to change these
@@ -15,9 +15,7 @@ function App(props) {
  
   return (
     <>
-      <h1>Listening Room</h1>
       <AuthButtons />
-      <hr />
       {
         props.auth0.isAuthenticated &&
         <>
