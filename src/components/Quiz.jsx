@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function Quiz() {
-  const [imageUrl, setImageUrl] = useState('');
+  const [imageUrls, setImageUrls] = useState([]);
 
   const fetchImage = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_SERVER}/openai/image`); // Update the URL
-      console.log('Here is the server image URL', response.data);
-      setImageUrl(response.data);
+      const response = await axios.post(`${import.meta.env.VITE_SERVER}/openai/image`); // Update the URL
+      console.log('Here are the server image URLs', response.data);
+      setImageUrls([...imageUrls, response.data]);
     } catch (error) {
       console.error('Error fetching image URL:', error);
     }
@@ -26,13 +26,13 @@ function Quiz() {
 
   return (
     <div>
-      <h2>Generated Image</h2>
+      <h2>Generated Images</h2>
       <button onClick={handleGetImage}>Get Image</button>
-      {imageUrl && (
-        <div>
-          <img src={imageUrl} alt="Generated Image" />
+      {imageUrls.map((imageUrl, index) => (
+        <div key={index}>
+          <img src={imageUrl.imageUrl} alt={`Generated Image ${index}`} />
         </div>
-      )}
+      ))}
     </div>
   );
 }
