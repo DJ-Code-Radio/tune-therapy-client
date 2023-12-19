@@ -143,3 +143,7 @@
 ## Wireframes
 
 ![wireframe](src/assets/tune-therapy-wireframe-301.png)
+
+## Domain Model
+
+![domain-model](src/assets/tune-therapy-domain-model-301.png)
