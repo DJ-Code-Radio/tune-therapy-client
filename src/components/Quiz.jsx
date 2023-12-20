@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for React Router v6
 
-function Quiz() {
+function Quiz({ onImageChange }) {
+  const navigate = useNavigate(); // useNavigate hook for navigation in React Router v6
   const [selectedButton, setSelectedButton] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null);
 
   const fetchImage = async (emotion) => {
     try {
       const response = await axios.post(`${import.meta.env.VITE_SERVER}/openai/image`, {
         emotion: emotion,
       });
-      console.log(emotion);
-      console.log(response);
-      console.log('Here is the server image URL', response.data.imageUrl);
-      setImageUrl(response.data.imageUrl);
+
+      // Call the handler to update imageUrl
+      onImageChange(response.data.imageUrl);
+
+      // Navigate to the ListeningRoom page after fetching the image
+      navigate('/listeningroom');
+
     } catch (error) {
       console.error('Error fetching image URL:', error);
     }
   };
-
   const sendMusicGenre = async (genre) => {
     try {
       const response = await axios.post(`${import.meta.env.VITE_SERVER}/openai/music`, {
@@ -33,11 +36,6 @@ function Quiz() {
     }
   };
 
-  const handleClick = async (emotion) => {
-    setSelectedButton(emotion);
-    await fetchImage(emotion); // Pass the selected emotion to fetchImage
-  };
-
   const handleMusicClick = async (genre) => {
     await sendMusicGenre(genre); // Pass the selected music genre to sendMusicGenre
   };
@@ -45,28 +43,26 @@ function Quiz() {
   return (
     <div>
       <h2>Generated Image</h2>
-      {imageUrl && (
-        <div>
-          <img src={imageUrl} alt={`Generated Image`} />
-        </div>
-      )}
+      {/* Display the image outside the map loop */}
+      {/* Ensure that imageUrl is not retained after navigating away */}
+      {false && <img src={imageUrl} alt={`Generated Image`} />}
 
-      <Button variant="primary" onClick={() => handleClick('sad')}>
+      <Button variant="primary" onClick={() => fetchImage('sad')}>
         Sad
       </Button>
-      <Button variant="primary" onClick={() => handleClick('happy')}>
+      <Button variant="primary" onClick={() => fetchImage('happy')}>
         Happy
       </Button>
-      <Button variant="primary" onClick={() => handleClick('angry')}>
+      <Button variant="primary" onClick={() => fetchImage('angry')}>
         Angry
       </Button>
-      <Button variant="primary" onClick={() => handleClick('surprised')}>
-        Surprised
+      <Button variant="primary" onClick={() => fetchImage('suprised')}>
+        Suprised
       </Button>
-      <Button variant="primary" onClick={() => handleClick('trust')}>
+      <Button variant="primary" onClick={() => fetchImage('trust')}>
         Trust
       </Button>
-      <Button variant="primary" onClick={() => handleClick('disgust')}>
+      <Button variant="primary" onClick={() => fetchImage('disgust')}>
         Disgust
       </Button>
       <hr></hr>
@@ -92,7 +88,7 @@ function Quiz() {
       <Button variant="primary" onClick={() => handleMusicClick('classical')}>
         Classical
       </Button>
-    </div>
+</div>
   );
 }
 
