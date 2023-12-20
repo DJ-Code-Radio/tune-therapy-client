@@ -1,8 +1,5 @@
 
 import { useState, useEffect } from 'react';
-
-import React, { useState } from 'react';
-
 import { withAuth0 } from '@auth0/auth0-react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AuthButtons from './auth/AuthButtons.jsx';
@@ -17,27 +14,23 @@ function App(props) {
 
   const [token, setToken] = useState('')
   const [user, setUser] = useState({})
-
-  useEffect(()=>{
-    async function getToken(){
-      let claim = await props.auth0.getIdTokenClaims();
-      setToken(claim.__raw);
-      setUser(props.auth0.user)
-    }
-    getToken();
-
-  }, [props.auth0.isAuthenticated])
-  
-  return (
-    <>
-      <AuthButtons />
-
   const [imageUrl, setImageUrl] = useState(null);
 
   // Pass setImageUrl to the Quiz component
   const handleImageChange = (url) => {
     setImageUrl(url);
-  };
+  }
+  useEffect(()=>{
+    async function getToken(){
+      let claim = await props.auth0.getIdTokenClaims();
+      console.log(claim.__raw)
+      let claimToken = claim.__raw
+      setToken(claimToken);
+      setUser(props.auth0.user)
+    }
+    getToken();
+
+  }, [props.auth0.isAuthenticated])
 
   return (
     <>
@@ -73,5 +66,6 @@ function App(props) {
     </>
   );
 }
+
 
 export default withAuth0(App);
