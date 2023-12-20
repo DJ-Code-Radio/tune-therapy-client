@@ -4,14 +4,17 @@ import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for React Router v6
 import '../css/Quiz.css'; // 
 
+
 function Quiz({ onImageChange }) {
   const navigate = useNavigate(); // useNavigate hook for navigation in React Router v6
+
   const [selectedButton, setSelectedButton] = useState(null);
 
   const fetchImage = async (emotion) => {
     try {
       const response = await axios.post(`${import.meta.env.VITE_SERVER}/openai/image`, {
         emotion: emotion,
+
       });
 
       // Call the handler to update imageUrl
