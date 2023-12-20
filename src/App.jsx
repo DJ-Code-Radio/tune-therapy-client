@@ -1,4 +1,3 @@
-// App.jsx
 import React, { useState } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -24,20 +23,27 @@ function App(props) {
       <AuthButtons />
       {props.auth0.isAuthenticated && (
         <>
-          {/* <button >What does this do??</button> */}
+          {/* Add any additional authenticated content here */}
         </>
       )}
       <Router>
         <Routes>
+          {/* ListeningRoom route */}
           <Route
             path="/listeningroom"
             element={<ListeningRoom imageUrl={imageUrl} />}
           />
+
+          {/* Quiz route */}
           <Route
             path="/quiz"
             element={<Quiz onImageChange={handleImageChange} />}
           />
-          <Route path="/" element={<AppRouter />} /> {/* Use AppRouter for the root path */}
+
+          {/* AppRouter route for the root path */}
+          <Route path="/" element={<AppRouter />} />
+
+          {/* About route */}
           <Route path="/about" element={<About />} />
         </Routes>
       </Router>
