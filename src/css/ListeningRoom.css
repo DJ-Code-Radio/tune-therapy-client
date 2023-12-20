@@ -1,0 +1,20 @@
+.listening-room-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #3b4c5a; /* Background color */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    border: 2px solid #333;
+    border-radius: 10px;
+}

@@ -19,7 +19,9 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.21.0"
+    "react-router-dom": "^6.21.0",
+    "react-vite": "^0.0.5",
+    "switch": "^0.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
