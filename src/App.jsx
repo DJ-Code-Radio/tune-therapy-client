@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AuthButtons from './auth/AuthButtons.jsx';
@@ -12,24 +12,29 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import About from './components/About';
 
 function App(props) {
- 
+  const [token, setToken] = useState('')
+  const [user, setUser] = useState({})
+
+  useEffect(()=>{
+    async function getToken(){
+      let claim = await props.auth0.getIdTokenClaims();
+      setToken(claim.__raw);
+      setUser(props.auth0.user)
+    }
+    getToken();
+
+  }, [props.auth0.isAuthenticated])
+  
   return (
     <>
       <AuthButtons />
-      {
-        props.auth0.isAuthenticated &&
-        <>
-          {/* <button >What does this do??</button> */}
-          
-        </>
-      }
       <Router>
         {/* <Header /> */}
         <Routes>
           {/* In order, home page with auth 0 login */}
-          <Route exact path="/ListeningRoom" element={<ListeningRoom/>} />
+          <Route exact path="/ListeningRoom" element={<ListeningRoom />} />
           {/* ChatGPT quiz for mood and music genres */}
-          <Route exact path="/quiz" element={<Quiz />} />
+          <Route exact path="/quiz" element={<Quiz token = {token} user={user}/>} />
 
           {/* Results of quiz with Spotify playlist */}
           <Route exact path="/" element={<Home />} />

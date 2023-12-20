@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 
-function Quiz() {
+function Quiz(props) {
+  console.log(props.user)
   const [selectedButton, setSelectedButton] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
 
   const fetchImage = async (emotion) => {
     try {
-      const response = await axios.post(`${import.meta.env.VITE_SERVER}/openai/image`, {
+      const response = await axios.post(`${import.meta.env.VITE_SERVER}openai/image`, {
         emotion,
       });
       console.log('Here is the server image URL', response.data.imageUrl);
@@ -18,9 +19,9 @@ function Quiz() {
     }
   };
 
-  const handleClick = async (emotion) => {
+  const handleClick = (emotion) => {
     setSelectedButton(emotion);
-    await fetchImage(emotion); // Pass the selected emotion to fetchImage
+    fetchImage(emotion); // Pass the selected emotion to fetchImage
   };
 
   return (
