@@ -1,4 +1,3 @@
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -6,23 +5,20 @@ import Image from 'react-bootstrap/Image';
 import '../css/Home.css';
 
 function Home() {
-    return (
-        // <p>Hello World</p>
-        <Container>
-            <Row>
-                <Col>
-                    <ListGroup>
-                        <ListGroup.Item>Relax your mind.</ListGroup.Item>
-                        <ListGroup.Item>Take a deep breath.</ListGroup.Item>
-                        <ListGroup.Item>Enjoy the experience.</ListGroup.Item>
-                    </ListGroup>
-                </Col>
-                <Col xs={6} md={4}>
-                    <Image src="src/assets/play-30619_1280.png" width='175px' roundedCircle />
-                </Col>
-            </Row>
-        </Container>
-    );
+  return (
+    <Row>
+      <Col className="container">
+        <ListGroup className="list-group">
+          <ListGroup.Item>Relax your mind.</ListGroup.Item>
+          <ListGroup.Item>Take a deep breath.</ListGroup.Item>
+          <ListGroup.Item>Enjoy the experience.</ListGroup.Item>
+        </ListGroup>
+      </Col>
+      <Col className="container image-col">
+        <Image src="src/assets/play-30619_1280.png" width='175px' roundedCircle />
+      </Col>
+    </Row>
+  );
 }
 
 export default Home;

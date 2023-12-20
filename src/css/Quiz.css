@@ -1,28 +1,24 @@
-/* home.css */
-
-body {
-    margin: 0;
-    background-color: #111111; /* Set the background color for the entire viewport */
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.quiz-container {
+    text-align: center;
     background-color: #3b4c5a;
     padding: 20px;
-    overflow: auto;
     height: 100vh;
+    /* Set height to 100% of viewport height */
+    margin: 0;
+    /* Remove default margin */
+    overflow: auto;
+    /* Add scrolling if needed */
 }
 
-
-.image-col img {
-    border: 2px solid #333;
-    /* Add other styles for the Image component in the Home component */
+.emotion-buttons,
+.music-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
 }
 
-/* .title {
+.title {
     color: #d18466;
     font-family: 'Righteous', sans-serif;
     padding: 0.5em;
@@ -37,6 +33,7 @@ body {
 p {
     color: #e1d9d0;
     font-family: 'Righteous', sans-serif;
+    /* font-size: 1.2em; */
     font-style: italic;
     padding: 1em;
-} */
+}
