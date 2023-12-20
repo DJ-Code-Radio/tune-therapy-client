@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 
-function ListeningRoom() {
+function ListeningRoom({imageUrl}) {
   const [songs, setSongs] = useState([]);
 
   const fetchSongs = async () => {
@@ -36,10 +36,14 @@ function ListeningRoom() {
   return (
     <div>
       <h2>Image Gallery</h2>
+
+      {/* Display the image outside the map loop */}
+      {imageUrl && <img src={imageUrl} alt={`Generated Image`} />}
+
       <ul>
         {songs.map((image) => (
           <li key={image.id}>
-            <h2 title={image.title }/>
+            <h2 title={image.title} />
             <p>{image.author}</p>
           </li>
         ))}
@@ -47,6 +51,7 @@ function ListeningRoom() {
     </div>
   );
 }
+
 
 
 export default ListeningRoom;

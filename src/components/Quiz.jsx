@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
+import ListeningRoom from './ListeningRoom'
 
 function Quiz() {
   const [selectedButton, setSelectedButton] = useState(null);
@@ -47,7 +48,8 @@ function Quiz() {
       <h2>Generated Image</h2>
       {imageUrl && (
         <div>
-          <img src={imageUrl} alt={`Generated Image`} />
+          {/* <img src={imageUrl} alt={`Generated Image`} /> */}
+          <ListeningRoom imageUrl={imageUrl} />
         </div>
       )}
 
