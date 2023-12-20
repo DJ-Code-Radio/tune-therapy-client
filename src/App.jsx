@@ -6,8 +6,7 @@ import Home from './components/Home.jsx';
 import Quiz from './components/Quiz.jsx';
 import ListeningRoom from './components/ListeningRoom.jsx';
 import About from './components/About';
-import AppRouter from './components/AppRouter'; // Import the AppRouter component
-import './css/App.css';
+// import AppRouter from './components/AppRouter'; // Import the AppRouter component
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App(props) {
@@ -41,7 +40,7 @@ function App(props) {
           />
 
           {/* AppRouter route for the root path */}
-          <Route path="/" element={<AppRouter />} />
+          <Route path="/" element={<Home />} />
 
           {/* About route */}
           <Route path="/about" element={<About />} />
