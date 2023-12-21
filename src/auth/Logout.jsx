@@ -1,5 +1,5 @@
-import { useAuth0} from '@auth0/auth0-react';
-import '../css/Auth.css'
+import React from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function LogoutButton() {
 
@@ -12,16 +12,9 @@ function LogoutButton() {
     logout({ returnTo: window.location.origin });
   }
 
-  return isAuthenticated && (
-    <div className="button-container">
-      <button
-        className="auth-button"
-        onClick={handleLogout}
-      >
-        Log out
-      </button>
-    </div>
-  );
+  return isAuthenticated &&
+      <button onClick={handleLogout}>Log out</button>
+    ;
 }
 
 export default LogoutButton;

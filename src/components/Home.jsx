@@ -9,16 +9,11 @@ import Background from '../assets/background.mp4';
 import PlayButton from '../assets/play-30619_1280.png';
 
 function Home() {
-  const { loginWithRedirect, isAuthenticated } = useAuth0();
   const navigate = useNavigate();
 
   const handleLogin = () => {
     const login = async () => {
-      if (!isAuthenticated) {
-        await loginWithRedirect();
-      } else {
         navigate('/quiz');
-      }
     };
 
     login();
