@@ -68,25 +68,41 @@ function Quiz({ onImageCreate }) {
     <div className="quiz-container">
       <h2 className='title'>Choose Your Favorite Music Genre</h2>
       <div className="music-buttons">
-        <Button variant="primary" onClick={() => handleMusicClick('pop')}>
+         <Button
+          variant={selectedGenre === 'pop' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('pop')}
+        >
           Pop
         </Button>
-        <Button variant="primary" onClick={() => handleMusicClick('rock')}>
+        <Button
+          variant={selectedGenre === 'rock' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('rock')}
+        >
           Rock
         </Button>
-        <Button variant="primary" onClick={() => handleMusicClick('hip-hop')}>
+        <Button variant={selectedGenre === 'hip-hop' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('hip-hop')}
+        >
           Hip-hop
         </Button>
-        <Button variant="primary" onClick={() => handleMusicClick('electronic')}>
+        <Button variant={selectedGenre === 'electronic' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('electronic')}
+        >
           Electronic
         </Button>
-        <Button variant="primary" onClick={() => handleMusicClick('jazz')}>
+        <Button variant={selectedGenre === 'jazz' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('jazz')}
+        >
           Jazz
         </Button>
-        <Button variant="primary" onClick={() => handleMusicClick('country')}>
+        <Button variant={selectedGenre === 'country' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('country')}
+        >
           Country
         </Button>
-        <Button variant="primary" onClick={() => handleMusicClick('classical')}>
+        <Button variant={selectedGenre === 'Classical' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('classical')}
+        >
           Classical
         </Button>
       </div>
