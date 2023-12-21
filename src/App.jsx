@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AuthButtons from './auth/AuthButtons.jsx';
 import Home from './components/Home.jsx';
 import Quiz from './components/Quiz.jsx';
-import ListeningRoom from './components/ListeningRoom.jsx';
+import MovieRoom from './components/MovieRoom.jsx';
 import About from './components/About';
 // import AppRouter from './components/AppRouter'; // Import the AppRouter component
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,6 +15,7 @@ function App(props) {
   const [token, setToken] = useState('')
   const [user, setUser] = useState({})
   const [imageUrl, setImageUrl] = useState(null);
+  const [trailerUrl, setTrailerUrl] = useState(null);
 
   // Pass setImageUrl to the Quiz component
   const handleImageChange = (url) => {
@@ -43,16 +44,17 @@ function App(props) {
 
       <Router>
         <Routes>
-          {/* ListeningRoom route */}
+          {/* MovieRoom route */}
           <Route
-            path="/listeningroom"
-            element={<ListeningRoom imageUrl={imageUrl} />}
+            path="/movieroom"
+            element={<MovieRoom imageUrl={imageUrl} trailerUrl={trailerUrl} />}
+            
           />
 
           {/* Quiz route */}
           <Route
             path="/quiz"
-            element={<Quiz onImageCreate={handleImageChange} token = {token} user={user}/>}
+            element={<Quiz setTrailerUrl={setTrailerUrl} onImageCreate={handleImageChange} token = {token} user={user}/>}
           />
 
 

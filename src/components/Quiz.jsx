@@ -5,7 +5,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import { useNavigate } from 'react-router-dom';
 import '../css/Quiz.css';
 
-function Quiz({ onImageCreate }) {
+function Quiz({ onImageCreate, setTrailerUrl}) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [selectedGenre, setSelectedGenre] = useState(null);
@@ -20,10 +20,28 @@ function Quiz({ onImageCreate }) {
           genre: selectedGenre,
           emotion: selectedEmotion,
         });
-
+        console.log(response.data.trailerUrl);
         console.log('Genre sent to the server:', response);
       } catch (error) {
         console.error('Error sending genre:', error);
+      }
+    } else {
+      console.error('Both genre and emotion must be selected.');
+    }
+  };
+
+  const fetchMovie = async () => {
+    if (selectedGenre && selectedEmotion) {
+      try {
+        const response = await axios.post(`${import.meta.env.VITE_SERVER}/openai/movie`, {
+          genre: selectedGenre,
+          emotion: selectedEmotion,
+        });
+        console.log('Movie data:', response.data.trailerUrl);
+        setTrailerUrl(response.data.trailerUrl);
+        // Additional processing of the movie data can go here
+      } catch (error) {
+        console.error('Error fetching movie data:', error);
       }
     } else {
       console.error('Both genre and emotion must be selected.');
@@ -37,7 +55,7 @@ function Quiz({ onImageCreate }) {
       });
 
       onImageCreate(response.data.imageUrl);
-      navigate('/listeningroom');
+      navigate('/movieroom');
     } catch (error) {
       console.error('Error fetching image URL:', error);
     }
@@ -50,6 +68,7 @@ function Quiz({ onImageCreate }) {
   useEffect(() => {
     console.log(selectedEmotion);
     sendGenre();
+    fetchMovie();
   }, [selectedEmotion]);
 
   const handleEmotionClick = async (emotion) => {
