@@ -3,16 +3,23 @@
     background-color: #3b4c5a;
     padding: 20px;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 0;
     overflow: auto;
 }
 
-.emotion-buttons,
-.music-buttons {
+.music-buttons,
+.emotion-buttons {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 10px;
+    margin-top: 5em;
+    /* Increase the margin-top to add more spacing */
+    margin-bottom: 5em;
+    /* Increase the margin-bottom to add more spacing */
 }
 
 .title {
@@ -26,6 +33,3 @@
     font-weight: bold;
     padding: 10px;
 }
-
-
-
