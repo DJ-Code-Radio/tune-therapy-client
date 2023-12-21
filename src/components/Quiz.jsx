@@ -1,78 +1,72 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for React Router v6
-import '../css/Quiz.css'; // 
+import { useNavigate } from 'react-router-dom';
 
+function Quiz({ onImageCreate }) {
+  const navigate = useNavigate();
 
-function Quiz({ onImageChange }) {
-  const navigate = useNavigate(); // useNavigate hook for navigation in React Router v6
+  const [selectedGenre, setSelectedGenre] = useState(null);
+  const [selectedEmotion, setSelectedEmotion] = useState(null);
 
-  const [selectedButton, setSelectedButton] = useState(null);
+  const sendMusicGenre = async () => {
+    console.log('Selected Genre:', selectedGenre);
+    console.log('Selected Emotion:', selectedEmotion);
+    if (selectedGenre && selectedEmotion) {
+      try {
+        const response = await axios.post(`${import.meta.env.VITE_SERVER}/openai/track`, {
+          genre: selectedGenre,
+          emotion: selectedEmotion,
+        });
+
+        console.log('Music genre sent to the server:', response);
+      } catch (error) {
+        console.error('Error sending music genre:', error);
+      }
+    } else {
+      console.error('Both genre and emotion must be selected.');
+    }
+  };
 
   const fetchImage = async (emotion) => {
     try {
       const response = await axios.post(`${import.meta.env.VITE_SERVER}/openai/image`, {
         emotion: emotion,
-
       });
 
-      // Call the handler to update imageUrl
-      onImageChange(response.data.imageUrl);
-
-      // Navigate to the ListeningRoom page after fetching the image
+      onImageCreate(response.data.imageUrl);
       navigate('/listeningroom');
-
     } catch (error) {
       console.error('Error fetching image URL:', error);
     }
   };
 
-  const sendMusicGenre = async (genre) => {
-    try {
-      const response = await axios.post(`${import.meta.env.VITE_SERVER}/openai/music`, {
-        genre: genre,
-      });
-      console.log(genre);
-      console.log('Music genre sent to the server:', response);
-      // You can handle the response from the server if needed
-    } catch (error) {
-      console.error('Error sending music genre:', error);
-    }
+  const handleMusicClick = async (genre) => {
+    await setSelectedGenre(genre);
   };
 
-  const handleMusicClick = async (genre) => {
-    await sendMusicGenre(genre); // Pass the selected music genre to sendMusicGenre
+  // const handleMusicClick = async (genre) => {
+  //   setSelectedGenre(genre);
+  // };
+
+  useEffect(() => {
+    console.log(selectedEmotion);
+    sendMusicGenre();
+  }, [selectedEmotion]);
+
+  const handleEmotionClick = async (emotion) => {
+    await setSelectedEmotion(emotion);
+    await fetchImage(emotion);
+    // console.log(selectedEmotion);
+    // console.log(selectedGenre);
   };
+
+  // const handleEmotionClick = async (emotion) => {
+  //   setSelectedEmotion(emotion);
+  // };
 
   return (
     <div className="quiz-container">
-      <h2 className="title">Choose Your Current Mood</h2>
-      {/* Display the image outside the map loop */}
-      {/* Ensure that imageUrl is not retained after navigating away */}
-      {false && <img src={imageUrl} alt={`Generated Image`} />}
-
-      <div className="emotion-buttons">
-        <Button variant="primary" onClick={() => fetchImage('sad music room')}>
-          Sad
-        </Button>
-        <Button variant="primary" onClick={() => fetchImage('happy')}>
-          Happy
-        </Button>
-        <Button variant="primary" onClick={() => fetchImage('angry')}>
-          Angry
-        </Button>
-        <Button variant="primary" onClick={() => fetchImage('suprised')}>
-          Suprised
-        </Button>
-        <Button variant="primary" onClick={() => fetchImage('trust')}>
-          Trust
-        </Button>
-        <Button variant="primary" onClick={() => fetchImage('disgust')}>
-          Disgust
-        </Button>
-      </div>
-
       <hr></hr>
       <h2 className='title'>Choose Your Favorite Music Genre</h2>
       <div className="music-buttons">
@@ -96,6 +90,31 @@ function Quiz({ onImageChange }) {
         </Button>
         <Button variant="primary" onClick={() => handleMusicClick('classical')}>
           Classical
+        </Button>
+      </div>
+      <hr></hr>
+      <h2 className="title">Choose Your Current Mood</h2>
+      <div className="emotion-buttons">
+        <Button variant="primary" onClick={() => handleEmotionClick('sad', setSelectedEmotion)}>
+          Sad
+        </Button>
+        <Button variant="primary" onClick={() => handleEmotionClick('happiness')}>
+          Happiness
+        </Button>
+        <Button variant="primary" onClick={() => handleEmotionClick('excitement')}>
+          Excitement
+        </Button>
+        <Button variant="primary" onClick={() => handleEmotionClick('angry')}>
+          Angry
+        </Button>
+        <Button variant="primary" onClick={() => handleEmotionClick('surprised')}>
+          Surprised
+        </Button>
+        <Button variant="primary" onClick={() => handleEmotionClick('trust')}>
+          Trust
+        </Button>
+        <Button variant="primary" onClick={() => handleEmotionClick('disgust')}>
+          Disgust
         </Button>
       </div>
     </div>

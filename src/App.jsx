@@ -52,7 +52,7 @@ function App(props) {
           {/* Quiz route */}
           <Route
             path="/quiz"
-            element={<Quiz onImageChange={handleImageChange} token = {token} user={user}/>}
+            element={<Quiz onImageCreate={handleImageChange} token = {token} user={user}/>}
           />
 
 
