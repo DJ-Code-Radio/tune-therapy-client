@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
+import backgroundPic from '../assets/background.mp4'
+import playButton from '../assets/play-30619_1280.png'
 import '../css/Home.css';
 
 function Home() {
@@ -33,7 +35,7 @@ function Home() {
   return (
     <Row>
       <video autoPlay muted loop id="video-bg">
-        <source src="src/assets/background.mp4" type="video/mp4" />
+        <source src={backgroundPic} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -51,7 +53,7 @@ function Home() {
       </Col>
       <Col className="container image-col">
         <Image
-          src="src/assets/play-30619_1280.png"
+          src= {playButton}
           width="100px"
           roundedCircle
           onClick={handleLogin}

@@ -1,0 +1,10 @@
+.profiles-container {
+    background-image: url(/theater.png);
+    display: flex;
+    position: relative;
+}
+
+.carousel-item{
+    position: relative;
+    width: 70%;
+}
