@@ -5,6 +5,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import '../css/Home.css';
+import Background from '../assets/background.mp4';
+import PlayButton from '../assets/play-30619_1280.png';
 
 function Home() {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
@@ -33,7 +35,7 @@ function Home() {
   return (
     <Row>
       <video autoPlay muted loop id="video-bg">
-        <source src="././src/assets/background.mp4" type="video/mp4" />
+        <source src={Background} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -51,7 +53,7 @@ function Home() {
       </Col>
       <Col className="container image-col">
         <Image
-          src="././src/assets/play-30619_1280.png"
+          src={PlayButton}
           width="100px"
           roundedCircle
           onClick={handleLogin}
