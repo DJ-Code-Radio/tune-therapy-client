@@ -68,7 +68,6 @@ function Quiz({ onImageCreate }) {
 
   return (
     <div className="quiz-container">
-      <hr></hr>
       <h2 className='title'>Choose Your Favorite Music Genre</h2>
       <div className="music-buttons">
         <Button variant="primary" onClick={() => handleMusicClick('pop')}>
@@ -93,7 +92,6 @@ function Quiz({ onImageCreate }) {
           Classical
         </Button>
       </div>
-      <hr></hr>
       <h2 className="title">Choose Your Current Mood</h2>
       <div className="emotion-buttons">
         <Button variant="primary" onClick={() => handleEmotionClick('sad', setSelectedEmotion)}>

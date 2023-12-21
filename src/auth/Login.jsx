@@ -1,6 +1,5 @@
-
 import { useAuth0 } from '@auth0/auth0-react';
-
+import '../css/Auth.css'
 
 function Login() {
   const {
@@ -16,7 +15,14 @@ function Login() {
   }
 
   return !isAuthenticated && (
-    <button onClick={handleLogin}>Log in</button>
+    <div className="button-container">
+      <button
+        className="auth-button"
+        onClick={handleLogin}
+      >
+        Log in
+      </button>
+    </div>
   );
 }
 

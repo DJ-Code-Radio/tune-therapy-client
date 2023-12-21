@@ -3,11 +3,8 @@
     background-color: #3b4c5a;
     padding: 20px;
     height: 100vh;
-    /* Set height to 100% of viewport height */
     margin: 0;
-    /* Remove default margin */
     overflow: auto;
-    /* Add scrolling if needed */
 }
 
 .emotion-buttons,
@@ -30,10 +27,5 @@
     padding: 10px;
 }
 
-p {
-    color: #e1d9d0;
-    font-family: 'Righteous', sans-serif;
-    /* font-size: 1.2em; */
-    font-style: italic;
-    padding: 1em;
-}
+
+
