@@ -33,7 +33,7 @@ function Home() {
   return (
     <Row>
       <video autoPlay muted loop id="video-bg">
-        <source src="src/assets/background.mp4" type="video/mp4" />
+        <source src="././src/assets/background.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -51,7 +51,7 @@ function Home() {
       </Col>
       <Col className="container image-col">
         <Image
-          src="src/assets/play-30619_1280.png"
+          src="././src/assets/play-30619_1280.png"
           width="100px"
           roundedCircle
           onClick={handleLogin}
