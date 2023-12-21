@@ -11,19 +11,19 @@ function Quiz({ onImageCreate }) {
   const [selectedGenre, setSelectedGenre] = useState(null);
   const [selectedEmotion, setSelectedEmotion] = useState(null);
 
-  const sendMusicGenre = async () => {
+  const sendGenre = async () => {
     console.log('Selected Genre:', selectedGenre);
     console.log('Selected Emotion:', selectedEmotion);
     if (selectedGenre && selectedEmotion) {
       try {
-        const response = await axios.post(`${import.meta.env.VITE_SERVER}/openai/track`, {
+        const response = await axios.post(`${import.meta.env.VITE_SERVER}/openai/movie`, {
           genre: selectedGenre,
           emotion: selectedEmotion,
         });
 
-        console.log('Music genre sent to the server:', response);
+        console.log('Genre sent to the server:', response);
       } catch (error) {
-        console.error('Error sending music genre:', error);
+        console.error('Error sending genre:', error);
       }
     } else {
       console.error('Both genre and emotion must be selected.');
@@ -49,7 +49,7 @@ function Quiz({ onImageCreate }) {
 
   useEffect(() => {
     console.log(selectedEmotion);
-    sendMusicGenre();
+    sendGenre();
   }, [selectedEmotion]);
 
   const handleEmotionClick = async (emotion) => {
@@ -66,44 +66,44 @@ function Quiz({ onImageCreate }) {
 
   return (
     <div className="quiz-container">
-      <h2 className='title'>Choose Your Favorite Music Genre</h2>
+      <h2 className='title'>Choose a Movie Genre</h2>
       <div className="music-buttons">
          <Button
-          variant={selectedGenre === 'pop' ? 'success' : 'primary'}
-          onClick={() => handleMusicClick('pop')}
+          variant={selectedGenre === 'comedy' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('comedy')}
         >
-          Pop
+          Comedy
         </Button>
         <Button
-          variant={selectedGenre === 'rock' ? 'success' : 'primary'}
-          onClick={() => handleMusicClick('rock')}
+          variant={selectedGenre === 'drama' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('drama')}
         >
-          Rock
+          Drama
         </Button>
-        <Button variant={selectedGenre === 'hip-hop' ? 'success' : 'primary'}
-          onClick={() => handleMusicClick('hip-hop')}
+        <Button variant={selectedGenre === 'action' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('action')}
         >
-          Hip-hop
+          Action
         </Button>
-        <Button variant={selectedGenre === 'electronic' ? 'success' : 'primary'}
-          onClick={() => handleMusicClick('electronic')}
+        <Button variant={selectedGenre === 'holiday' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('holiday')}
         >
-          Electronic
+          Holiday
         </Button>
-        <Button variant={selectedGenre === 'jazz' ? 'success' : 'primary'}
-          onClick={() => handleMusicClick('jazz')}
+        <Button variant={selectedGenre === 'sci-fi' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('sci-fi')}
         >
-          Jazz
+          Sci-Fi
         </Button>
-        <Button variant={selectedGenre === 'country' ? 'success' : 'primary'}
-          onClick={() => handleMusicClick('country')}
+        <Button variant={selectedGenre === 'western' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('western')}
         >
-          Country
+          Western
         </Button>
-        <Button variant={selectedGenre === 'Classical' ? 'success' : 'primary'}
-          onClick={() => handleMusicClick('classical')}
+        <Button variant={selectedGenre === 'classic' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('classic')}
         >
-          Classical
+          Classic
         </Button>
       </div>
       <h2 className="title">Choose Your Current Mood</h2>
@@ -121,8 +121,8 @@ function Quiz({ onImageCreate }) {
           </Button>
         ) : (
           <>
-            <Button variant="primary" onClick={() => handleEmotionClick('sad', setSelectedEmotion)}>
-              Sad
+            <Button variant="primary" onClick={() => handleEmotionClick('sadness', setSelectedEmotion)}>
+              Sadness
             </Button>
             <Button variant="primary" onClick={() => handleEmotionClick('happiness')}>
               Happiness
@@ -136,11 +136,11 @@ function Quiz({ onImageCreate }) {
             <Button variant="primary" onClick={() => handleEmotionClick('surprised')}>
               Surprised
             </Button>
-            <Button variant="primary" onClick={() => handleEmotionClick('trust')}>
-              Trust
+            <Button variant="primary" onClick={() => handleEmotionClick('trusting')}>
+              Trusting
             </Button>
-            <Button variant="primary" onClick={() => handleEmotionClick('disgust')}>
-              Disgust
+            <Button variant="primary" onClick={() => handleEmotionClick('disgusted')}>
+              Disgusted
             </Button>
           </>
         )}
