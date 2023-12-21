@@ -1,0 +1,14 @@
+.button-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.auth-button {
+    padding: 10px;
+    background: #3b4c5a;
+    color: #e1d9d0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

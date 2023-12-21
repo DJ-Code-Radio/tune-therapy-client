@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
 import { useNavigate } from 'react-router-dom';
 import '../css/Quiz.css';
 
 function Quiz({ onImageCreate }) {
   const navigate = useNavigate();
-
+  const [loading, setLoading] = useState(false);
   const [selectedGenre, setSelectedGenre] = useState(null);
   const [selectedEmotion, setSelectedEmotion] = useState(null);
 
@@ -46,77 +47,103 @@ function Quiz({ onImageCreate }) {
     await setSelectedGenre(genre);
   };
 
-  // const handleMusicClick = async (genre) => {
-  //   setSelectedGenre(genre);
-  // };
-
   useEffect(() => {
     console.log(selectedEmotion);
     sendMusicGenre();
   }, [selectedEmotion]);
 
   const handleEmotionClick = async (emotion) => {
-    await setSelectedEmotion(emotion);
-    await fetchImage(emotion);
-    // console.log(selectedEmotion);
-    // console.log(selectedGenre);
+    try {
+      setLoading(true); // Set loading to true when the emotion button is clicked
+      await setSelectedEmotion(emotion);
+      await fetchImage(emotion);
+    } catch (error) {
+      console.error('Error handling emotion click:', error);
+    } finally {
+      setLoading(false); // Set loading to false after the asynchronous operations are complete
+    }
   };
-
-  // const handleEmotionClick = async (emotion) => {
-  //   setSelectedEmotion(emotion);
-  // };
 
   return (
     <div className="quiz-container">
-      <hr></hr>
       <h2 className='title'>Choose Your Favorite Music Genre</h2>
       <div className="music-buttons">
-        <Button variant="primary" onClick={() => handleMusicClick('pop')}>
+         <Button
+          variant={selectedGenre === 'pop' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('pop')}
+        >
           Pop
         </Button>
-        <Button variant="primary" onClick={() => handleMusicClick('rock')}>
+        <Button
+          variant={selectedGenre === 'rock' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('rock')}
+        >
           Rock
         </Button>
-        <Button variant="primary" onClick={() => handleMusicClick('hip-hop')}>
+        <Button variant={selectedGenre === 'hip-hop' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('hip-hop')}
+        >
           Hip-hop
         </Button>
-        <Button variant="primary" onClick={() => handleMusicClick('electronic')}>
+        <Button variant={selectedGenre === 'electronic' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('electronic')}
+        >
           Electronic
         </Button>
-        <Button variant="primary" onClick={() => handleMusicClick('jazz')}>
+        <Button variant={selectedGenre === 'jazz' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('jazz')}
+        >
           Jazz
         </Button>
-        <Button variant="primary" onClick={() => handleMusicClick('country')}>
+        <Button variant={selectedGenre === 'country' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('country')}
+        >
           Country
         </Button>
-        <Button variant="primary" onClick={() => handleMusicClick('classical')}>
+        <Button variant={selectedGenre === 'Classical' ? 'success' : 'primary'}
+          onClick={() => handleMusicClick('classical')}
+        >
           Classical
         </Button>
       </div>
-      <hr></hr>
       <h2 className="title">Choose Your Current Mood</h2>
       <div className="emotion-buttons">
-        <Button variant="primary" onClick={() => handleEmotionClick('sad', setSelectedEmotion)}>
-          Sad
-        </Button>
-        <Button variant="primary" onClick={() => handleEmotionClick('happiness')}>
-          Happiness
-        </Button>
-        <Button variant="primary" onClick={() => handleEmotionClick('excitement')}>
-          Excitement
-        </Button>
-        <Button variant="primary" onClick={() => handleEmotionClick('angry')}>
-          Angry
-        </Button>
-        <Button variant="primary" onClick={() => handleEmotionClick('surprised')}>
-          Surprised
-        </Button>
-        <Button variant="primary" onClick={() => handleEmotionClick('trust')}>
-          Trust
-        </Button>
-        <Button variant="primary" onClick={() => handleEmotionClick('disgust')}>
-          Disgust
-        </Button>
+        {loading ? (
+          <Button variant="primary" disabled>
+            <Spinner
+              as="span"
+              animation="grow"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            />
+            Loading...
+          </Button>
+        ) : (
+          <>
+            <Button variant="primary" onClick={() => handleEmotionClick('sad', setSelectedEmotion)}>
+              Sad
+            </Button>
+            <Button variant="primary" onClick={() => handleEmotionClick('happiness')}>
+              Happiness
+            </Button>
+            <Button variant="primary" onClick={() => handleEmotionClick('excitement')}>
+              Excitement
+            </Button>
+            <Button variant="primary" onClick={() => handleEmotionClick('angry')}>
+              Angry
+            </Button>
+            <Button variant="primary" onClick={() => handleEmotionClick('surprised')}>
+              Surprised
+            </Button>
+            <Button variant="primary" onClick={() => handleEmotionClick('trust')}>
+              Trust
+            </Button>
+            <Button variant="primary" onClick={() => handleEmotionClick('disgust')}>
+              Disgust
+            </Button>
+          </>
+        )}
       </div>
     </div>
   );

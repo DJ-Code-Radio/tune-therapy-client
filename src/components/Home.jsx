@@ -1,37 +1,56 @@
+import { useAuth0 } from '@auth0/auth0-react';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ListGroup from 'react-bootstrap/ListGroup';
 import Image from 'react-bootstrap/Image';
-import { useAuth0 } from '@auth0/auth0-react'; // Import the Auth0 hook
 import '../css/Home.css';
 
 function Home() {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
+  const navigate = useNavigate();
 
-  // Function to handle login
   const handleLogin = () => {
-    if (!isAuthenticated) {
-      loginWithRedirect();
-    }
+    const login = async () => {
+      if (!isAuthenticated) {
+        await loginWithRedirect();
+      } else {
+        navigate('/quiz');
+      }
+    };
+
+    login();
   };
+
+  useEffect(() => {
+    // Apply animation class after component mounts
+    const items = document.querySelectorAll('.animated-item');
+    items.forEach((item, index) => {
+      item.style.animationDelay = `${index * 2}s`;
+    });
+  }, []);
 
   return (
     <Row>
       <Col className="container">
-        <ListGroup className="list-group">
-          <ListGroup.Item>Relax your mind.</ListGroup.Item>
-          <ListGroup.Item>Take a deep breath.</ListGroup.Item>
-          <ListGroup.Item>Enjoy the experience.</ListGroup.Item>
-        </ListGroup>
+        {/* Apply the animated-item class to each item */}
+        <div className="animated-item" id="relax">
+          Relax your mind.
+        </div>
+        <div className="animated-item" id="take">
+          Take a deep breath.
+        </div>
+        <div className="animated-item" id="enjoy">
+          Enjoy the experience.
+        </div>
       </Col>
       <Col className="container image-col">
-        {/* Add a button or clickable element that triggers the Auth0 login */}
         <Image
           src="src/assets/play-30619_1280.png"
-          width='175px'
+          width="175px"
           roundedCircle
-          onClick={handleLogin} // Call handleLogin when the image is clicked
-          style={{ cursor: 'pointer' }} // Add a pointer cursor to indicate clickability
+          onClick={handleLogin}
+          style={{ cursor: 'pointer' }}
         />
       </Col>
     </Row>

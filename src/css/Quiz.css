@@ -3,19 +3,23 @@
     background-color: #3b4c5a;
     padding: 20px;
     height: 100vh;
-    /* Set height to 100% of viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 0;
-    /* Remove default margin */
     overflow: auto;
-    /* Add scrolling if needed */
 }
 
-.emotion-buttons,
-.music-buttons {
+.music-buttons,
+.emotion-buttons {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 10px;
+    margin-top: 5em;
+    /* Increase the margin-top to add more spacing */
+    margin-bottom: 5em;
+    /* Increase the margin-bottom to add more spacing */
 }
 
 .title {
@@ -28,12 +32,4 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     font-weight: bold;
     padding: 10px;
-}
-
-p {
-    color: #e1d9d0;
-    font-family: 'Righteous', sans-serif;
-    /* font-size: 1.2em; */
-    font-style: italic;
-    padding: 1em;
 }
