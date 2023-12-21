@@ -1,17 +1,36 @@
+#video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #3b4c5a;
+    background-color: transparent; 
     padding: 20px;
     overflow: auto;
     height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.image-col {
+    align-self: flex-start; 
 }
 
 .image-col img {
     border: 2px solid #333;
-    /* Add other styles for the Image component in the Home component */
+    opacity: 0; 
+    animation: fadeIn 6s;
+    animation-delay: 6s; 
+    animation-fill-mode: forwards;
 }
 
 .animated-item {
@@ -23,7 +42,24 @@
     opacity: 0;
     padding-left: 20px;
     max-width: 300px;
-    
+}
+
+.animated-item:nth-child(1) {
+    animation-delay: 0s;
+    font-size: x-large;
+    font-family: fantasy;
+}
+
+.animated-item:nth-child(2) {
+    animation-delay: 2s;
+    font-size: larger;
+    font-family: fantasy;
+}
+
+.animated-item:nth-child(3) {
+    animation-delay: 4s;
+    font-size: medium;
+    font-family: fantasy;
 }
 
 @keyframes fadeIn {
