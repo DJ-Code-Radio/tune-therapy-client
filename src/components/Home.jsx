@@ -29,7 +29,7 @@ function Home() {
 
   return (
     <Row>
-      <video autoPlay muted loop id="video-bg">
+      <video autoPlay muted id="video-bg">
         <source src={Background} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
