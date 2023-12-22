@@ -39,28 +39,21 @@ function App(props) {
       <AuthButtons />
       <Router>
         <Routes>
-          {/* MovieRoom route */}
           <Route
             path="/movieroom"
             element={<MovieRoom imageUrl={imageUrl} trailerUrl={trailerUrl} />}
-            
           />
-
-          {/* Quiz route */}
           <Route
-            path="/quiz"
+            exact path="/quiz"
             element={<Quiz setTrailerUrl={setTrailerUrl} onImageCreate={handleImageChange} token = {token} user={user}/>}
           />
-
-
-          {/* AppRouter route for the root path */}
-          <Route path="/" element={<Home />} />
-
-          {/* About route */}
-          <Route path="/about" element={<About />} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/about" element={<About />} />
         </Routes>
+        <Navigation>
+        </Navigation>
       </Router>
-      <Navigation></Navigation>
+      
     </>
   );
 }
