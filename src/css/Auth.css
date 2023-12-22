@@ -15,8 +15,8 @@
 
 .login-button {
     position: fixed;
-    bottom: 10px;
-    left: 50%;
+    bottom: 8px;
+    left: 10%;
     transform: translateX(-50%);
     background-color: #353311; /* Tomato color */
     color: white;
@@ -28,8 +28,8 @@
 }
 .logout-button {
     position: fixed;
-  bottom: 10px;
-  left: 50%;
+  bottom: 8px;
+  left: 10%;
   transform: translateX(-50%);
   background-color: #353311; /* Tomato color */
   color: white;

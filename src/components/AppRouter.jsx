@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';  // N
 import Quiz from './Quiz';
 import MovieRoom from './MovieRoom';
 import Home from './Home';
+import About from './About'
 
 const AppRouter = () => {
   return (
@@ -11,6 +12,7 @@ const AppRouter = () => {
       <Routes> {/* Change this line from <Switch> to <Routes> */}
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/movieroom" element={<MovieRoom />} />
+        <Route path="/about" element={<About/>}/>
         <Route path="/" element={<Home />} />
       </Routes> {/* Change this line from </Switch> to </Routes> */}
     </Router>

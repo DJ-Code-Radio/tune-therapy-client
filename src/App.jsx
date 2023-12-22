@@ -7,6 +7,7 @@ import Home from './components/Home.jsx';
 import Quiz from './components/Quiz.jsx';
 import MovieRoom from './components/MovieRoom.jsx';
 import About from './components/About';
+import Navigation from './components/Navigation.jsx';
 // import AppRouter from './components/AppRouter'; // Import the AppRouter component
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -36,12 +37,6 @@ function App(props) {
   return (
     <>
       <AuthButtons />
-      {props.auth0.isAuthenticated && (
-        <>
-          {/* Add any additional authenticated content here */}
-        </>
-      )}
-
       <Router>
         <Routes>
           {/* MovieRoom route */}
@@ -65,6 +60,7 @@ function App(props) {
           <Route path="/about" element={<About />} />
         </Routes>
       </Router>
+      <Navigation></Navigation>
     </>
   );
 }
