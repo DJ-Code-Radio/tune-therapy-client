@@ -20,7 +20,7 @@ function MovieRoom({ imageUrl, trailerUrl }) {
 
   return (
     <div className="movie-room-container" style={{backgroundImage: `url(${imageUrl})`}}>
-      <h2 className="title">Welcome To Your Theatre Room</h2>
+      <h2 className="title">Welcome To Your Theater Room</h2>
       <p className="p">Here is a movie we think you will like.</p>
   
       <div className="trailer-container">
