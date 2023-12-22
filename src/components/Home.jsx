@@ -30,7 +30,7 @@ function Home() {
   return (
     <Row>
       <video autoPlay muted id="video-bg">
-        <source src={Background} type="video/mp4" />
+        <source src={Background} type="video/mp4" alt="background video" />
         Your browser does not support the video tag.
       </video>
 
@@ -53,6 +53,7 @@ function Home() {
           roundedCircle
           onClick={handleLogin}
           style={{ cursor: 'pointer' }}
+          alt="button click"
         />
       </Col>
     </Row>
