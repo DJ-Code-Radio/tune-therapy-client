@@ -1,6 +1,6 @@
 .quiz-container {
     text-align: center;
-    background-color: #3b4c5a;
+    background-color: #A06400;
     padding: 20px;
     height: 100vh;
     display: flex;
@@ -23,13 +23,12 @@
 }
 
 .title {
-    color: #d18466;
+    color: #280B00;
     font-family: 'Righteous', sans-serif;
     padding: 0.5em;
     font-size: 2.25em;
-    background-color: #3b4c5a;
+    background-color: #A06400;
     border-radius: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     font-weight: bold;
     padding: 10px;
 }
