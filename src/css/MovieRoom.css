@@ -1,20 +1,33 @@
 .movie-room-container {
     text-align: center;
     padding: 20px;
-    background-color: #3b4c5a; /* Background color */
-}
-
-.image-container {
+    background-color: #280B00; /* Consider making this transparent or a dark overlay */
+    height: 100vh;
+    width: 100vw; /* Changed to 100vw to cover full width */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-    overflow: hidden;
+    flex-direction: column; /* Changed to column to stack children */
+    justify-content: flex-start; /* Align children to the top */
+    align-items: center; /* Center children horizontally */
+    position: relative;
+    background-size: cover; /* Ensure the background image covers the full container */
+    background-position: center; /* Center the background image */
+    z-index: 1;
+    position: relative; /* This allows absolute positioning within it */
+    overflow: hidden; /* Optional: in case the content goes outside the bounds */
 }
 
-.image-container img {
-    max-width: 50%;
-    max-height: 50%;
-    border: 2px solid #333;
-    border-radius: 10px;
+.title, .p {
+    margin-top: 20px; /* Adjust as needed */
+    color: white; /* Ensure text is visible over the background */
 }
+
+.trailer-container {
+    position: absolute; /* Keep it over the background */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for exact centering */
+    z-index: 2; /* Ensure it's above the background image */
+    width: 560px; /* Set a specific width or make it responsive as needed */
+    height: 315px; /* Set a specific height or make it responsive as needed */
+}
+

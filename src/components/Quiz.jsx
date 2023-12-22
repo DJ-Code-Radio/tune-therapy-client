@@ -139,29 +139,29 @@ function Quiz({ onImageCreate, setTrailerUrl}) {
             Loading...
           </Button>
         ) : (
-          <>
-            <Button variant="light" onClick={() => handleEmotionClick('sadness', setSelectedEmotion)}>
-              Sadness
-            </Button>
-            <Button variant="light" onClick={() => handleEmotionClick('happiness')}>
-              Happiness
-            </Button>
-            <Button variant="light" onClick={() => handleEmotionClick('excitement')}>
-              Excitement
-            </Button>
-            <Button variant="light" onClick={() => handleEmotionClick('angry')}>
-              Angry
-            </Button>
-            <Button variant="light" onClick={() => handleEmotionClick('surprised')}>
-              Surprised
-            </Button>
-            <Button variant="light" onClick={() => handleEmotionClick('trusting')}>
-              Trusting
-            </Button>
-            <Button variant="light" onClick={() => handleEmotionClick('disgusted')}>
-              Disgusted
-            </Button>
-          </>
+<>
+  <Button variant="light" onClick={() => handleEmotionClick('sadness', setSelectedEmotion)} style={{ fontSize: '24px', padding: '10px' }}>
+    <span style={{ fontSize: '48px' }}>😢</span> {/* Sadness */}
+  </Button>
+  <Button variant="light" onClick={() => handleEmotionClick('happiness')} style={{ fontSize: '24px', padding: '10px' }}>
+    <span style={{ fontSize: '48px' }}>😊</span> {/* Happiness */}
+  </Button>
+  <Button variant="light" onClick={() => handleEmotionClick('excitement')} style={{ fontSize: '24px', padding: '10px' }}>
+    <span style={{ fontSize: '48px' }}>🤩</span> {/* Excitement */}
+  </Button>
+  <Button variant="light" onClick={() => handleEmotionClick('angry')} style={{ fontSize: '24px', padding: '10px' }}>
+    <span style={{ fontSize: '48px' }}>😠</span> {/* Angry */}
+  </Button>
+  <Button variant="light" onClick={() => handleEmotionClick('surprised')} style={{ fontSize: '24px', padding: '10px' }}>
+    <span style={{ fontSize: '48px' }}>😲</span> {/* Surprised */}
+  </Button>
+  <Button variant="light" onClick={() => handleEmotionClick('trusting')} style={{ fontSize: '24px', padding: '10px' }}>
+    <span style={{ fontSize: '48px' }}>🤝</span> {/* Trusting */}
+  </Button>
+  <Button variant="light" onClick={() => handleEmotionClick('disgusted')} style={{ fontSize: '24px', padding: '10px' }}>
+    <span style={{ fontSize: '48px' }}>🤢</span> {/* Disgusted */}
+  </Button>
+</>
         )}
       </div>
     </div>

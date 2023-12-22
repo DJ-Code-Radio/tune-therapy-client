@@ -37,13 +37,13 @@ function Home() {
       <Col className="container">
         {/* Apply the animated-item class to each item */}
         <div className="animated-item" id="relax">
-          Relax your mind.
+          Grab your popcorn!
         </div>
         <div className="animated-item" id="take">
-          Take a deep breath.
+          Sit back and relax.
         </div>
         <div className="animated-item" id="enjoy">
-          Enjoy the experience.
+          Soak in the cinematic experience.
         </div>
       </Col>
       <Col className="container image-col">
