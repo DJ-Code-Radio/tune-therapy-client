@@ -6,7 +6,7 @@ import dummy from '../assets/dummy.png';
 import '../css/About.css'
 function About() {
   return (
-    <div className='profiles-container' style={{backgroundImage: background}}>
+    <div className='profiles-container' style={{backgroundImage: `url(${background})`, position: 'relative', backgroundRepeat: 'no-repeat',  backgroundSize: 'cover', height: '100vh', width: '100vw'} }>
     <Carousel fade>
       <Carousel.Item className='c-item'>
         <img

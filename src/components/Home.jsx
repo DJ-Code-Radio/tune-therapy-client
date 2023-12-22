@@ -12,7 +12,7 @@ function Home() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    const login = async () => {
+    const login = () => {
         navigate('/quiz');
     };
 
