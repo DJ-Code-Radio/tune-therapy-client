@@ -88,38 +88,38 @@ function Quiz({ onImageCreate, setTrailerUrl}) {
       <h2 className='title'>Choose a Movie Genre</h2>
       <div className="music-buttons">
          <Button
-          variant={selectedGenre === 'comedy' ? 'success' : 'primary'}
+          variant={selectedGenre === 'comedy' ? 'success' : 'light'}
           onClick={() => handleMusicClick('comedy')}
         >
           Comedy
         </Button>
         <Button
-          variant={selectedGenre === 'drama' ? 'success' : 'primary'}
+          variant={selectedGenre === 'drama' ? 'success' : 'light'}
           onClick={() => handleMusicClick('drama')}
         >
           Drama
         </Button>
-        <Button variant={selectedGenre === 'action' ? 'success' : 'primary'}
+        <Button variant={selectedGenre === 'action' ? 'success' : 'light'}
           onClick={() => handleMusicClick('action')}
         >
           Action
         </Button>
-        <Button variant={selectedGenre === 'holiday' ? 'success' : 'primary'}
+        <Button variant={selectedGenre === 'holiday' ? 'success' : 'light'}
           onClick={() => handleMusicClick('holiday')}
         >
           Holiday
         </Button>
-        <Button variant={selectedGenre === 'sci-fi' ? 'success' : 'primary'}
+        <Button variant={selectedGenre === 'sci-fi' ? 'success' : 'light'}
           onClick={() => handleMusicClick('sci-fi')}
         >
           Sci-Fi
         </Button>
-        <Button variant={selectedGenre === 'western' ? 'success' : 'primary'}
+        <Button variant={selectedGenre === 'western' ? 'success' : 'light'}
           onClick={() => handleMusicClick('western')}
         >
           Western
         </Button>
-        <Button variant={selectedGenre === 'classic' ? 'success' : 'primary'}
+        <Button variant={selectedGenre === 'classic' ? 'success' : 'light'}
           onClick={() => handleMusicClick('classic')}
         >
           Classic
@@ -140,25 +140,25 @@ function Quiz({ onImageCreate, setTrailerUrl}) {
           </Button>
         ) : (
           <>
-            <Button variant="primary" onClick={() => handleEmotionClick('sadness', setSelectedEmotion)}>
+            <Button variant="light" onClick={() => handleEmotionClick('sadness', setSelectedEmotion)}>
               Sadness
             </Button>
-            <Button variant="primary" onClick={() => handleEmotionClick('happiness')}>
+            <Button variant="light" onClick={() => handleEmotionClick('happiness')}>
               Happiness
             </Button>
-            <Button variant="primary" onClick={() => handleEmotionClick('excitement')}>
+            <Button variant="light" onClick={() => handleEmotionClick('excitement')}>
               Excitement
             </Button>
-            <Button variant="primary" onClick={() => handleEmotionClick('angry')}>
+            <Button variant="light" onClick={() => handleEmotionClick('angry')}>
               Angry
             </Button>
-            <Button variant="primary" onClick={() => handleEmotionClick('surprised')}>
+            <Button variant="light" onClick={() => handleEmotionClick('surprised')}>
               Surprised
             </Button>
-            <Button variant="primary" onClick={() => handleEmotionClick('trusting')}>
+            <Button variant="light" onClick={() => handleEmotionClick('trusting')}>
               Trusting
             </Button>
-            <Button variant="primary" onClick={() => handleEmotionClick('disgusted')}>
+            <Button variant="light" onClick={() => handleEmotionClick('disgusted')}>
               Disgusted
             </Button>
           </>
