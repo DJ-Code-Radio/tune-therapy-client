@@ -5,7 +5,16 @@ import Spinner from 'react-bootstrap/Spinner';
 import { useNavigate } from 'react-router-dom';
 import '../css/Quiz.css';
 
-function Quiz({ onImageCreate, setTrailerUrl}) {
+
+function Quiz() {
+
+  return (
+    <>
+    <h1>Hello World</h1>
+    </>
+  )
+}
+function QuizOld({ onImageCreate, setTrailerUrl}) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [selectedGenre, setSelectedGenre] = useState(null);
