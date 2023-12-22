@@ -41,14 +41,14 @@ function App(props) {
         <Routes>
           {/* MovieRoom route */}
           <Route
-            path="/movieroom"
+            path="https://cinemood.netlify.app/movieroom"
             element={<MovieRoom imageUrl={imageUrl} trailerUrl={trailerUrl} />}
             
           />
 
           {/* Quiz route */}
           <Route
-            path="/quiz"
+            path="https://cinemood.netlify.app/quiz"
             element={<Quiz setTrailerUrl={setTrailerUrl} onImageCreate={handleImageChange} token = {token} user={user}/>}
           />
 
@@ -57,7 +57,7 @@ function App(props) {
           <Route path="/" element={<Home />} />
 
           {/* About route */}
-          <Route path="/about" element={<About />} />
+          <Route path="https://cinemood.netlify.app/about" element={<About />} />
         </Routes>
       </Router>
       <Navigation></Navigation>
