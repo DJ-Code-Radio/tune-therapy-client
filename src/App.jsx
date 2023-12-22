@@ -25,7 +25,7 @@ function App(props) {
   useEffect(()=>{
     async function getToken(){
       let claim = await props.auth0.getIdTokenClaims();
-      console.log(claim.__raw)
+      console.log(claim.__raw);
       let claimToken = claim.__raw
       setToken(claimToken);
       setUser(props.auth0.user)
@@ -41,14 +41,14 @@ function App(props) {
         <Routes>
           {/* MovieRoom route */}
           <Route
-            path="https://cinemood.netlify.app/movieroom"
+            path="/movieroom"
             element={<MovieRoom imageUrl={imageUrl} trailerUrl={trailerUrl} />}
             
           />
 
           {/* Quiz route */}
           <Route
-            path="https://cinemood.netlify.app/quiz"
+            path="/quiz"
             element={<Quiz setTrailerUrl={setTrailerUrl} onImageCreate={handleImageChange} token = {token} user={user}/>}
           />
 
@@ -57,7 +57,7 @@ function App(props) {
           <Route path="/" element={<Home />} />
 
           {/* About route */}
-          <Route path="https://cinemood.netlify.app/about" element={<About />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </Router>
       <Navigation></Navigation>
