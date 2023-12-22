@@ -142,6 +142,8 @@
 
 ## Wireframes
 
+![wireframe](src/assets/cinemood-wireframe.png)
+
 ![wireframe](src/assets/tune-therapy-wireframe-301.png)
 
 ## Domain Model

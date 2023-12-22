@@ -2,36 +2,33 @@
 
 ## Vision:
 
-User experiences a listening room based on media selections they are feeling aligned with.
+User experiences a movie room based on media selections they are feeling aligned with.
 Pain point this project solves:
 
-Entertainment or relaxation for the user.
+The monotonous movie search.
 Care about this product because:
 
-Research has shown that listening to music can reduce anxiety, blood pressure, and pain as well as improve sleep quality, mood, mental alertness, and memory.
-Source: [John Hopkins Medicine](https://www.hopkinsmedicine.org/health/wellness-and-prevention/keep-your-brain-young-with-music#:~:text=Research%20has%20shown%20that%20listening,%2C%20mental%20alertness%2C%20and%20memoryLinks) to an external site..
+As much time can be spent looking for one to watch as watching. CineMood allows the user to receive a movie recommendation based off the genre they choose and their current mood. Movies can not only entertain us, but they can also move us and influence our lives. 
+
 
 ## IN Scope - What our product will do:
 
-- Stimulate the user via visual and audio media
-- Provide an opportunity for the user to interact with media by choosing their preferred media
-- Provide the user an opportunity to consider their feelings and mood and select "vibes" that align
-- Expose the user to new music or music which could be pleasing to them in their current mood.
+- Provide an opportunity for the user to interact with movies by choosing their preferred genre and mood.
+- Suggest a movie to the user which could be pleasing to them in their current mood.
+- Create an AI generated theater image for the user based on the mood they select. 
 
 ## OUT of scope - What our product will not do:
 
-Medically treat the user's health or mood issues
+Guarantee a movie recommendation that is new to the user.
 
 ## Our MVP functionality will be:
 
-* the user will understand the site and be invited to the listening room experience
-* the user will choose a visual representation (image) that corresponds to a mood they are currently in or want to experience
-* the site will recommend a song for the listener to enjoy based off of the emotion the user selected
-* the user will then be able to listen to a song that is the result of their selection 
-* the recommended playlist is saved in the user Spotify account
+* the user will understand the site and be invited to the movie room experience
+* the site will recommend a movie for the user to enjoy based off of the emotion and genre the user selected
+* the user will then be able to watch a trailer to a movie that is the result of the AI generated recommendation 
 
 ## Our stretch goals will be:
 
-* the user's original choice of image will be their listening room environment background
-* user shares feedback on songs they are presented on the playlist in the listening room
-* user's feedback on songs can be used to recommend songs in the next user session or to interact with the user giving personalized interaction or choices for music on the next user session
+* the user's original choice of mood will be used to create an image that will be their movie room environment background
+* user shares feedback on the movie recommendation they are presented
+* user's feedback on movies can be used to recommend movies in the next user session or to interact with the user giving personalized interaction or choices for moives on the next user session
