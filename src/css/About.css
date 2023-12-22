@@ -1,10 +1,19 @@
-.profiles-container {
-    background-image: url(/theater.png);
-    display: flex;
+
+body {
     position: relative;
+    background-image: url(../assets/theater.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    
 }
 
-.carousel-item{
-    position: relative;
-    width: 70%;
+
+.carousel{
+    position: absolute;
+    width: 30%;
+    top: 550px;
+    left: 920px;
+   opacity: 100%;
 }

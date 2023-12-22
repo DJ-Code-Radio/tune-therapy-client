@@ -1,9 +1,11 @@
 import Carousel from 'react-bootstrap/Carousel';
+import background from '../assets/theater.png'
+import '../css/About.css'
 
 
 function About() {
   return (
-    <div className='profiles-container'>
+    <div className='profiles-container' style={{backgroundImage: background}}>
     <Carousel fade>
       <Carousel.Item className='c-item'>
         <img

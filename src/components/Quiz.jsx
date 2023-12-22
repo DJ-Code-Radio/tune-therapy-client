@@ -3,6 +3,7 @@ import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import { useNavigate } from 'react-router-dom';
+import background from '../assets/theater.png'
 import '../css/Quiz.css';
 
 function Quiz({ onImageCreate, setTrailerUrl}) {
@@ -84,42 +85,45 @@ function Quiz({ onImageCreate, setTrailerUrl}) {
   };
 
   return (
-    <div className="quiz-container">
+    <>
+    <div className="quiz-container" src={background}>
       <h2 className='title'>Choose a Movie Genre</h2>
       <div className="music-buttons">
          <Button
-          variant={selectedGenre === 'comedy' ? 'success' : 'primary'}
+          style={{color:'#A06400'}}
+          variant={selectedGenre === 'comedy' ? 'success' : 'custom'}
           onClick={() => handleMusicClick('comedy')}
+          
         >
           Comedy
         </Button>
         <Button
-          variant={selectedGenre === 'drama' ? 'success' : 'primary'}
+          variant={selectedGenre === 'drama' ? 'success' : 'custom'}
           onClick={() => handleMusicClick('drama')}
         >
           Drama
         </Button>
-        <Button variant={selectedGenre === 'action' ? 'success' : 'primary'}
+        <Button variant={selectedGenre === 'action' ? 'success' : 'custom'}
           onClick={() => handleMusicClick('action')}
         >
           Action
         </Button>
-        <Button variant={selectedGenre === 'holiday' ? 'success' : 'primary'}
+        <Button variant={selectedGenre === 'holiday' ? 'success' : 'custom'}
           onClick={() => handleMusicClick('holiday')}
         >
           Holiday
         </Button>
-        <Button variant={selectedGenre === 'sci-fi' ? 'success' : 'primary'}
+        <Button variant={selectedGenre === 'sci-fi' ? 'success' : 'custom'}
           onClick={() => handleMusicClick('sci-fi')}
         >
           Sci-Fi
         </Button>
-        <Button variant={selectedGenre === 'western' ? 'success' : 'primary'}
+        <Button variant={selectedGenre === 'western' ? 'success' : 'custom'}
           onClick={() => handleMusicClick('western')}
         >
           Western
         </Button>
-        <Button variant={selectedGenre === 'classic' ? 'success' : 'primary'}
+        <Button variant={selectedGenre === 'classic' ? 'success' : 'custom'}
           onClick={() => handleMusicClick('classic')}
         >
           Classic
@@ -165,6 +169,7 @@ function Quiz({ onImageCreate, setTrailerUrl}) {
         )}
       </div>
     </div>
+    </>
   );
 }
 
